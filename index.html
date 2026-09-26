@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101014"><title>Cine Duelo — a escolha da noite</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./index.html" aria-label="Cine Duelo, início"><span class="brand-icon">▶</span> CINE<span> DUELO</span><i>NOITE DE CINEMA</i></a><div class="header-actions"><span class="local-dot">Sessão local</span><button id="bracket-button" class="button small secondary" hidden>Ver chaves ↗</button></div></header>
+  <main>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <section id="setup">
+      <div class="intro"><p class="eyebrow"><span></span> A DISCUSSÃO ACABA AQUI</p><h1>Muitos filmes.<br>Uma <em>escolha da noite.</em></h1><p>Monte as chaves. Defenda seu favorito.<br>O último filme de pé ganha o sofá.</p></div>
+      <div class="setup-layout">
+        <form id="film-form" class="panel add-panel">
+          <div class="panel-heading"><span class="step">01</span><div><h2>Coloque seu filme na disputa</h2><p>Vale clássico, bomba e guilty pleasure.</p></div></div>
+          <label for="film-name">Nome do filme</label><input id="film-name" name="name" placeholder="Qual é a sua aposta?" maxlength="120" required autocomplete="off">
+          <label for="film-url">Link da capa <span>opcional</span></label><input id="film-url" name="url" type="text" inputmode="url" placeholder="https://…" autocomplete="off">
+          <div class="or"><span>ou envie do seu dispositivo</span></div>
+          <label class="upload" for="film-file"><span class="upload-icon">↑</span><strong id="file-label">Escolher uma imagem</strong><span>JPG, PNG ou WebP · até 15 MB</span><input id="film-file" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          <div id="preview" hidden></div>
+          <button id="add-button" class="button primary full" type="submit">＋ Adicionar à disputa</button>
+          <p class="quiet form-footnote">Sem capa? A gente improvisa um pôster.</p>
+          <button id="load-list-button" class="button secondary full" type="button">Carregar minha lista de filmes</button>
+        </form>
+        <section class="panel lineup"><div class="lineup-heading"><div><p class="eyebrow">O ELENCO DA NOITE</p><h2>Na disputa <span id="film-count" class="badge">0</span></h2></div><span class="quiet">Você escolhe os candidatos.</span></div><div id="film-list" class="film-list"></div><div class="launch"><div><strong id="start-hint">A noite começa com 2 filmes</strong><p>Chaves sorteadas. Rivalidades garantidas.</p></div><button id="start-button" class="button primary" disabled>Sortear & começar <span>→</span></button></div></section>
+      </div>
+      <div class="how-it-works"><span><b>01</b> Adicione os filmes</span><span class="connector">—</span><span><b>02</b> A galera vota, você registra</span><span class="connector">—</span><span><b>03</b> Dê o play no campeão</span></div>
+    </section>
+    <section id="arena" hidden></section>
+    <section id="champion" hidden></section>
+  </main>
+  <footer><span>FEITO PARA DECIDIR. E DISCORDAR UM POUCO.</span><span>Sem contas. Só a sua galera. <span class="footer-star">✦</span></span></footer>
+  <dialog id="bracket-dialog" aria-labelledby="bracket-title"><div class="dialog-heading"><div><p class="eyebrow">DO PRIMEIRO DUELO AO PLAY</p><h2 id="bracket-title">O caminho até o sofá</h2></div><button id="close-bracket" class="icon-button" aria-label="Fechar chaves">×</button></div><div id="bracket-content"></div></dialog>
+  <div id="confetti" aria-hidden="true"></div>
+  <dialog id="reset-dialog" aria-labelledby="reset-title" style="max-width:440px"><h2 id="reset-title">Começar outra disputa?</h2><p id="reset-description" class="quiet"></p><div class="champion-actions"><button id="cancel-reset" class="button secondary" autofocus>Cancelar</button><button id="confirm-reset" class="button primary">Confirmar</button></div></dialog>
+  <script src="tournament.js"></script><script src="movies.js"></script><script src="app.js"></script>
+</body>
+</html>
